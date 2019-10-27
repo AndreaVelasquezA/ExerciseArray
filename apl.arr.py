@@ -15,7 +15,7 @@ mi = a[[2,], :]
 ju = a[[3,], :]
 vi = a[[4,], :]
 s =  a[[4,], :-4]
-
+a_1 = a[ :-4]
 #posicion de la mayor y menor temperatura por semana
 d1 = np.argmax(lu)
 d2 = np.argmax(ma)
@@ -28,6 +28,9 @@ d7 = np.argmin(ma)
 d8 = np.argmin(mi)
 d9 = np.argmin(ju)
 d10= np.argmin(vi)
+
+d11 = np.argmax(a)
+d12 = np.argmin(a_1)
 
 
 print("  Dias Semana",dias)
@@ -53,6 +56,9 @@ d7f = funcion_diccionario(d7)
 d8f = funcion_diccionario(d8)
 d9f = funcion_diccionario(d9)
 d10f = funcion_diccionario(d10)
+
+d11f = funcion_diccionario(d11)
+d12f = funcion_diccionario(d12)
 
 
 
@@ -151,22 +157,43 @@ print("temperatura menor en la quinta semana  :",min_5,"en el dia",d10f)
 print("TEMPERATURA MAXIMA Y MINIMA EN EL MES")
 tem_mes = np.max(a)
 print("")
-print("temperatura maxima en el mes :",tem_mes)
+print("temperatura maxima en el mes :",tem_mes,"en el dia",d11f)
 
-a_1 = a[ :-4]
+
 
 tem_mess= np.min(a_1)
 print("")
-print("temperatura minima en el mes :",tem_mess)
+print("temperatura minima en el mes :",tem_mess,"en el dia",d12f)
 
 
+d = int(input("digite el numero del dia que desea cambiar: "))
+
+if d%7 == 0:
+    s = int(d/7)-1
+else:
+    s = int(d/7)
+
+x = s*7
+ds = d-x-1
+
+a[s][ds]
+
+v = int(input("digite el valor de la temperatura :"))
+
+a[s][ds]=v
+dias = [["lu ma mi ju vi sa do"]]
+lu = a[[0,], :]
+ma = a[[1,], :]
+mi = a[[2,], :]
+ju = a[[3,], :]
+vi = a[[4,], :]
+s =  a[[4,], :-4]
+a_1 = a[ :-4]
 
 
-
-
-
-
-
-
-
-
+print("  Dias Semana",dias)
+print("Primera Semana",lu)
+print("Segunda Semana",ma)
+print("Tercera Semana",mi)
+print("Cuarta Semana ",ju)
+print("Quinta Semana ",vi)
